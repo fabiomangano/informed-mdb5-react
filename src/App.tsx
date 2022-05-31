@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Form } from 'informed';
+import MyInput from './SearchInput';
+import style from './App.module.css';
+import { MDBIcon } from 'mdb-react-ui-kit';
+
 
 function App() {
+  const onSubmit: (values: Record<string, unknown>) => void = ({ values }) => console.log(values);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Form onSubmit={onSubmit} className={style.form}>
+        <MyInput name="search" />
+      </Form>
+    </>
   );
 }
 
